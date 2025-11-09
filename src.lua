@@ -1,0 +1,96 @@
+-- Define a Utility table
+local Utility = {}
+
+-- Utility:Create function to create instances dynamically
+function Utility:Create(instanceType, properties, children)
+	-- Create the main instance
+	local newInstance = Instance.new(instanceType)
+
+	-- Set properties on the instance
+	for prop, value in pairs(properties) do
+		-- Check if the property is AnchorPoint, which expects a Vector2, not UDim2
+		if prop == "AnchorPoint" and typeof(value) == "UDim2" then
+			-- Convert UDim2 to Vector2
+			newInstance[prop] = value.Position
+		else
+			newInstance[prop] = value
+		end
+	end
+
+	-- Create and parent children if any
+	if children then
+		for _, child in pairs(children) do
+			child.Parent = newInstance
+		end
+	end
+
+	return newInstance
+end
+
+
+
+
+
+
+
+
+function Library:CreateWindow(EmojiText)
+	
+	
+	
+	
+	
+	
+	-- Usage example
+	local Theme = {
+		BackgroundColor = Color3.fromRGB(25, 25, 25),
+		PrimaryTextColor = Color3.fromRGB(255,255,255),
+	}
+
+	-- Create a ScreenGui
+	local screenGui = Utility:Create('ScreenGui', {
+		Name = 'MainScreenGui',
+		DisplayOrder = 1,  -- Optional, sets the z-index of the ScreenGui
+		ResetOnSpawn = false  -- Optional, prevents it from resetting when the player respawns
+	})
+
+	-- Create a Frame and add it to the ScreenGui
+	local frame = Utility:Create('Frame', {
+		Name = 'Main',
+		BackgroundColor3 = Theme.BackgroundColor,
+		BorderSizePixel = 0,
+		BackgroundTransparency = 0,
+		Position = UDim2.new(0.5, 0,0.5, 0),
+		Size = UDim2.new(0, 350,0, 400),
+		AnchorPoint = Vector2.new(0.5, 0.5)  -- AnchorPoint as Vector2
+	}, {
+		Utility:Create('UICorner', {
+			CornerRadius = UDim.new(0, 7),
+			Name = 'MainCorner'
+		}),
+		Utility:Create('TextLabel', {
+			Name = 'Emoji',
+			BorderSizePixel = 0,
+			BackgroundTransparency = 1,
+			Position = UDim2.new(0.5, 0, 0.5, 0),
+			Size = UDim2.new(0, 50, 0, 50),
+			AnchorPoint = Vector2.new(0.5, 0.5),
+			Font = Enum.Font.FredokaOne,
+			Text = EmojiText,
+			TextColor3 = Theme.PrimaryTextColor,
+			TextSize = 18,
+			ZIndex = 2,
+			TextXAlignment = Enum.TextXAlignment.Center
+		})
+	})
+
+	-- Parent the screenGui to the player's PlayerGui, and the frame to the screenGui
+	screenGui.Parent = game.Players.LocalPlayer.PlayerGui
+	frame.Parent = screenGui
+	
+	
+	
+	
+	
+	
+end
