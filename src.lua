@@ -1,15 +1,13 @@
--- MoonLib (external script)
+-- External Script (MoonLib)
 local Library = {}
 
--- Utility table definition
+-- Utility table
 local Utility = {}
 
 -- Utility:Create function to create instances dynamically
 function Utility:Create(instanceType, properties, children)
-    -- Create the main instance
     local newInstance = Instance.new(instanceType)
 
-    -- Set properties on the instance
     for prop, value in pairs(properties) do
         if prop == "AnchorPoint" and typeof(value) == "UDim2" then
             newInstance[prop] = value.Position
@@ -18,7 +16,6 @@ function Utility:Create(instanceType, properties, children)
         end
     end
 
-    -- Create and parent children if any
     if children then
         for _, child in pairs(children) do
             child.Parent = newInstance
@@ -28,7 +25,7 @@ function Utility:Create(instanceType, properties, children)
     return newInstance
 end
 
--- Define CreateWindow method
+-- CreateWindow function in Library
 function Library:CreateWindow(EmojiText)
     local Theme = {
         BackgroundColor = Color3.fromRGB(25, 25, 25),
@@ -77,5 +74,5 @@ function Library:CreateWindow(EmojiText)
     frame.Parent = screenGui
 end
 
--- Return the Library table so it can be required
+-- Return the Library table
 return Library
