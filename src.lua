@@ -26,7 +26,7 @@ function Utility:Create(instanceType, properties, children)
 end
 
 -- CreateWindow function in Library
-function Library:CreateWindow(EmojiText, IntroText)
+function Library:CreateIntro(EmojiText, IntroText)
     local Theme = {
         BackgroundColor = Color3.fromRGB(17, 17, 27),
         PrimaryTextColor = Color3.fromRGB(205, 214, 244),
@@ -88,6 +88,9 @@ function Library:CreateWindow(EmojiText, IntroText)
     -- Parent the screenGui to the player's PlayerGui
     screenGui.Parent = game.Players.LocalPlayer.PlayerGui
     frame.Parent = screenGui
+
+    task.wait(10)
+    game.Players.LocalPlayer.PlayerGui.MainScreenGui:Destroy()
 end
 
 -- Return the Library table
