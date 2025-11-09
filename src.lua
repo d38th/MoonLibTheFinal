@@ -28,8 +28,8 @@ end
 -- CreateWindow function in Library
 function Library:CreateWindow(EmojiText)
     local Theme = {
-        BackgroundColor = Color3.fromRGB(25, 25, 25),
-        PrimaryTextColor = Color3.fromRGB(255, 255, 255),
+        BackgroundColor = Color3.fromRGB(17, 17, 27),
+        PrimaryTextColor = Color3.fromRGB(205, 214, 244),
     }
 
     -- Create a ScreenGui
@@ -46,23 +46,25 @@ function Library:CreateWindow(EmojiText)
         BorderSizePixel = 0,
         BackgroundTransparency = 0,
         Position = UDim2.new(0.5, 0, 0.5, 0),
-        Size = UDim2.new(0, 350, 0, 400),
+        Size = UDim2.new(0, 350, 0, 200),
         AnchorPoint = Vector2.new(0.5, 0.5)
     }, {
         Utility:Create('UICorner', {
-            CornerRadius = UDim.new(0, 7),
+            CornerRadius = UDim.new(0, 13),
             Name = 'MainCorner'
         }),
         Utility:Create('TextLabel', {
             Name = 'Emoji',
             BorderSizePixel = 0,
             BackgroundTransparency = 1,
-            Position = UDim2.new(0.5, 0, 0.5, 0),
-            Size = UDim2.new(0, 75, 0, 75),
+            Position = UDim2.new(0.5, 0, 0.4, 0),
+            Size = UDim2.new(0, 125, 0, 125),
             AnchorPoint = Vector2.new(0.5, 0.5),
-            Font = Enum.Font.FredokaOne,
+            Font = Enum.Font.Montserrat, 
+            FontWeight = Enum.FontWeight.Black, -- REMOVE IF NO WORKIE
             Text = EmojiText,
             TextColor3 = Theme.PrimaryTextColor,
+            TextScaled = true,
             TextSize = 45,
             ZIndex = 2,
             TextXAlignment = Enum.TextXAlignment.Center
