@@ -26,7 +26,7 @@ function Utility:Create(instanceType, properties, children)
 end
 
 -- CreateWindow function in Library
-function Library:CreateWindow(EmojiText)
+function Library:CreateWindow(EmojiText, IntroText)
     local Theme = {
         BackgroundColor = Color3.fromRGB(17, 17, 27),
         PrimaryTextColor = Color3.fromRGB(205, 214, 244),
@@ -62,6 +62,21 @@ function Library:CreateWindow(EmojiText)
             AnchorPoint = Vector2.new(0.5, 0.5),
             Font = Enum.Font.FredokaOne, 
             Text = EmojiText,
+            TextColor3 = Theme.PrimaryTextColor,
+            TextScaled = true,
+            TextSize = 45,
+            ZIndex = 2,
+            TextXAlignment = Enum.TextXAlignment.Center
+        }),
+         Utility:Create('TextLabel', {
+            Name = 'IntroText',
+            BorderSizePixel = 0,
+            BackgroundTransparency = 1,
+            Position = UDim2.new(0.5, 0, 0.8, 0),
+            Size = UDim2.new(1, 0, 0, 45),
+            AnchorPoint = Vector2.new(0.5, 0.5),
+            Font = Enum.Font.FredokaOne, 
+            Text = IntroText,
             TextColor3 = Theme.PrimaryTextColor,
             TextScaled = true,
             TextSize = 45,
