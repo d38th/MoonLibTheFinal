@@ -60,8 +60,7 @@ function Library:CreateWindow(EmojiText)
             Position = UDim2.new(0.5, 0, 0.4, 0),
             Size = UDim2.new(0, 125, 0, 125),
             AnchorPoint = Vector2.new(0.5, 0.5),
-            Font = Enum.Font.Montserrat, 
-            FontWeight = Enum.FontWeight.Black, -- REMOVE IF NO WORKIE
+            Font = Enum.Font.FredokaOne, 
             Text = EmojiText,
             TextColor3 = Theme.PrimaryTextColor,
             TextScaled = true,
