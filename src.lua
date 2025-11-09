@@ -58,12 +58,12 @@ function Library:CreateWindow(EmojiText)
             BorderSizePixel = 0,
             BackgroundTransparency = 1,
             Position = UDim2.new(0.5, 0, 0.5, 0),
-            Size = UDim2.new(0, 50, 0, 50),
+            Size = UDim2.new(0, 75, 0, 75),
             AnchorPoint = Vector2.new(0.5, 0.5),
             Font = Enum.Font.FredokaOne,
             Text = EmojiText,
             TextColor3 = Theme.PrimaryTextColor,
-            TextSize = 18,
+            TextSize = 45,
             ZIndex = 2,
             TextXAlignment = Enum.TextXAlignment.Center
         })
